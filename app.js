@@ -24,7 +24,7 @@ let initialRoundNum = 1; //初期の席替え回数
 let roundNum = initialRoundNum; //ラウンド数（席替えしたら増える）
 let teams = [];
 let allMembers = [];
-let pairHistory = new Map(); //ペアの同チーム履歴を記録
+let pairHistory = new Map(); //ペアの同チーム履歴を記録する用のマップ
 
 function getPairKey(memberId1, memberId2) {
     return memberId1 < memberId2 ? `${memberId1}-${memberId2}` : `${memberId2}-${memberId1}`;
@@ -37,7 +37,7 @@ function recordCurrentTeams() {
         for (let i = 0; i < activeTeamMembers.length; i++) {
             for (let j = i + 1; j < activeTeamMembers.length; j++) {
                 const pairKey = getPairKey(activeTeamMembers[i].id, activeTeamMembers[j].id);
-                pairHistory.set(pairKey, (pairHistory.get(pairKey) || 0) + 1);
+                pairHistory.set(pairKey, (pairHistory.get(pairKey) || 0) + 1); //map(key=ペア名, value=ペアになった回数)のvalueを更新
             }
         }
     });
@@ -82,7 +82,7 @@ function initializeTeams() {
         
         teams.push(team);
     }
-    roundNumRender(); //初期化時に席替え回数を表示
+    displayRoundNum(); //初期化時に席替え回数を表示
     recordCurrentTeams();
     displayTeams();
 }
@@ -164,7 +164,7 @@ function shuffleTeams() {
         }
     });
 
-    roundNumRender();
+    displayRoundNum();
     displayTeams();
 }
 
@@ -214,7 +214,7 @@ function optimizeTeamAssignment(activeMembers, teamCount, baseMembersPerTeam, ex
     return bestAssignment;
 }
 
-function roundNumRender() {
+function displayRoundNum() {
     const roundCount = document.getElementById('roundNumber');
     roundCount.textContent = `${roundNum}`; //ラウンド数を表示
     roundNum++;
