@@ -86,6 +86,8 @@ function initializeTeams() {
     const roundLabel = document.getElementById('roundLabel');
     roundLabel.innerHTML = `<strong>現在のラウンド:</strong><span id="roundNumber">1</span>`;
 
+    const shuffleButton = document.getElementById('shuffleBtn');
+    shuffleButton.disabled = false; //初期化時にボタンを有効化
     displayRoundNum(); //初期化時に席替え回数を表示
     recordCurrentTeams();
     displayTeams();
