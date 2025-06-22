@@ -82,6 +82,10 @@ function initializeTeams() {
         
         teams.push(team);
     }
+
+    const roundLabel = document.getElementById('roundLabel');
+    roundLabel.innerHTML = `<strong>現在のラウンド:</strong><span id="roundNumber">1</span>`;
+
     displayRoundNum(); //初期化時に席替え回数を表示
     recordCurrentTeams();
     displayTeams();

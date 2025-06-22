@@ -95,3 +95,7 @@ button:hover {
 .shuffle-btn:hover {
     background-color: #218838;
 }
+button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
