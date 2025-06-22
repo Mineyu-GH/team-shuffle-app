@@ -173,7 +173,7 @@ function optimizeTeamAssignment(activeMembers, teamCount, baseMembersPerTeam, ex
     let bestScore = Infinity;
     const maxIterations = 1000; //最適化の試行回数
 
-    for (let iteration = 0; iteration < maxIterations; iteration++) {
+    for (let ite = 0; ite < maxIterations; ite++) {
         //ランダムシャッフル
         const shuffledMembers = [...activeMembers];
         for (let i = shuffledMembers.length - 1; i > 0; i--) {
