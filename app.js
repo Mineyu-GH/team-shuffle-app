@@ -83,7 +83,6 @@ function initializeTeams() {
         teams.push(team);
     }
     roundNumRender(); //初期化時に席替え回数を表示
-    //初期チーム構成を履歴に記録
     recordCurrentTeams();
     displayTeams();
 }
