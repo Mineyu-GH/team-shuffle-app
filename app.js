@@ -99,7 +99,7 @@ function displayTeams() {
 
     teams.forEach(team => {
         const teamBox = document.createElement('div');
-        teamBox.className = 'team-box';
+        teamBox.className = `team-box team-${team.teamName}`;
         
         const teamTitle = document.createElement('div');
         teamTitle.className = 'team-title';

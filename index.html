@@ -4,31 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>チーム席替えアプリ</title>
-    <script src="app.js"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link rel="stylesheet" href="app.css">
 </head>
 <body>
-    <h1>チーム席替えアプリ</h1>
-    
-    <div class="input-section">
-        <div class="input-group">
-            <label for="teamCount">チーム数:</label>
-            <input type="number" id="teamCount" value="3" min="2" max="10">
+    <div class="container">
+        <div class="header">
+            <h1>チーム席替えアプリ</h1>
         </div>
-        <div class="input-group">
-            <label for="membersPerTeam">1チームあたりの人数:</label>
-            <input type="number" id="membersPerTeam" value="4" min="2" max="10">
-        </div>
-        <button onclick="initializeTeams()">チームセットアップ</button>
         
+        <div class="input-section">
+            <div class="input-group">
+                <label for="teamCount">チーム数:</label>
+                <input type="number" id="teamCount" value="3" min="2" max="10">
+            </div>
+            <div class="input-group">
+                <label for="membersPerTeam">1チームあたりの人数:</label>
+                <input type="number" id="membersPerTeam" value="4" min="2" max="10">
+            </div>
+            <button onclick="initializeTeams()">チームセットアップ</button>
+            
+        </div>
+        <div class="round-display">
+            <div id="roundCount" class="round-count"><strong id="roundLabel"></strong><span id="roundNumber"></span></div>
+        </div>
+        <div class="main-display">
+
+
+            <div id="teamsDisplay" class="teams-container"></div>
+
+            <div class="shuffle-section">
+                <button disabled id="shuffleBtn" class="shuffle-btn" onclick="shuffleTeams()">席替え実行</button>
+            </div>            
+        </div>
+
     </div>
-
-    <div id="roundCount" class="round-count"><strong id="roundLabel"></strong><span id="roundNumber"></span></div>
-    <div id="teamsDisplay" class="teams-container"></div>
-
-    <div class="shuffle-section">
-        <button disabled id="shuffleBtn" class="shuffle-btn" onclick="shuffleTeams()">席替え実行</button>
-    </div>
-
+    <script src="app.js"></script>
 </body>
 </html>
